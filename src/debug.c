@@ -80,9 +80,9 @@ int print_icon_data(struct TrayIcon *ti)
     XWindowAttributes xwa;
 #endif
     LOG_INFO(("wid = 0x%lx\n", ti->wid));
-    LOG_TRACE(("  self = %p\n", ti));
-    LOG_TRACE(("  prev = %p\n", ti->prev));
-    LOG_TRACE(("  next = %p\n", ti->next));
+    LOG_TRACE(("  self = %p\n", (void *) ti));
+    LOG_TRACE(("  prev = %p\n", (void *) ti->prev));
+    LOG_TRACE(("  next = %p\n", (void *) ti->next));
     LOG_TRACE(("  invalid = %d\n", ti->is_invalid));
     LOG_TRACE(("  layed_out = %d\n", ti->is_layed_out));
     LOG_TRACE(("  update_pos = %d\n", ti->is_updated));

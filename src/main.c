@@ -966,7 +966,7 @@ int main(int argc, char **argv)
     if ((tray_data.dpy = XOpenDisplay(settings.display_str)) == NULL)
         DIE(("could not open display\n"));
     else
-        LOG_TRACE(("Opened dpy %p\n", tray_data.dpy));
+        LOG_TRACE(("Opened dpy %p\n", (void *) tray_data.dpy));
 #ifdef _ST_EXIT_GRACEFULLY
     if ((async_dpy = XOpenDisplay(settings.display_str)) == NULL)
         DIE(("could not open display\n"));

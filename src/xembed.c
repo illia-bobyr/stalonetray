@@ -286,7 +286,7 @@ void xembed_switch_focus_to(struct TrayIcon *tgt, long focus)
     if (tray_data.xembed_data.current != NULL) {
         LOG_TRACE(("XEMBED focus was removed from icon 0x%lx (pointer %p)\n",
             tray_data.xembed_data.current->wid,
-            tray_data.xembed_data.current));
+            (void *) tray_data.xembed_data.current));
         xembed_send_focus_out(tray_data.dpy,
             tray_data.xembed_data.current->wid,
             tray_data.xembed_data.timestamp);
@@ -296,7 +296,7 @@ void xembed_switch_focus_to(struct TrayIcon *tgt, long focus)
         xembed_send_focus_in(
             tray_data.dpy, tgt->wid, focus, tray_data.xembed_data.timestamp);
         LOG_TRACE(("XEMBED focus was set to icon 0x%lx (pointer %p)\n",
-            tgt->wid, tgt));
+            tgt->wid, (void *) tgt));
     } else {
         LOG_TRACE(("XEMBED focus was unset\n"));
     }
