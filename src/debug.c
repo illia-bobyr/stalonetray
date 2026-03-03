@@ -39,8 +39,6 @@ void print_message_to_stderr(const char *fmt, ...)
     fprintf(stderr, "%s", msg);
 }
 
-#ifdef DEBUG
-
 int trace_mode = False;
 
 void print_trace_header(
@@ -74,7 +72,6 @@ void print_trace_header(
 #endif
     fprintf(stderr, "%s(): ", funcname);
 }
-#endif
 
 /* Print the summary of icon data */
 int print_icon_data(struct TrayIcon *ti)

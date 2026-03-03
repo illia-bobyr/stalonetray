@@ -36,8 +36,8 @@ void print_message_to_stderr(const char *fmt, ...)
 #endif
     ;
 
-#ifdef DEBUG
 /* The following defines control what is printed in each logged line */
+#ifdef DEBUG
 /* Print window name */
 #define TRACE_WM_NAME
 /* Print pid */
@@ -49,6 +49,8 @@ void print_message_to_stderr(const char *fmt, ...)
 /* Print name of a function, file and line which outputs the message */
 /* Othewise, only function name is printed */
 #undef TRACE_VERBOSE_LOCATION
+#endif
+
 /* Print the debug header as specified by defines below */
 void print_trace_header(
     const char *funcname, const char *fname, const int line);
@@ -65,14 +67,6 @@ void print_trace_header(
             print_message_to_stderr message; \
         }; \
     } while (0)
-#else
-#define PRINT_TRACE_HEADER() \
-    do { \
-    } while (0)
-#define LOG_TRACE(message) \
-    do { \
-    } while (0)
-#endif
 
 #define LOG_ERROR(message) \
     do { \
