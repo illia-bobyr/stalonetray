@@ -121,10 +121,8 @@ int parse_log_level(int, const char **argv, void **references, int silent)
         *log_level = LOG_LEVEL_ERR;
     else if (!strcmp(argv[0], "info"))
         *log_level = LOG_LEVEL_INFO;
-#ifdef DEBUG
     else if (!strcmp(argv[0], "trace"))
         *log_level = LOG_LEVEL_TRACE;
-#endif
     else {
         PARSING_ERROR("err, info, or trace expected", argv[0]);
         return FAILURE;
