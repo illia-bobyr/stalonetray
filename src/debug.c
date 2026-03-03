@@ -71,6 +71,10 @@ void print_trace_header(
     fprintf(stderr, "(%s:%4d) ", fname, line);
 #endif
     fprintf(stderr, "%s(): ", funcname);
+
+    (void) pid; /* unused */
+    (void) fname; /* unused */
+    (void) line; /* unused */
 }
 
 /* Print the summary of icon data */
