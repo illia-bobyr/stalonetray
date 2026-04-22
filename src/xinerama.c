@@ -48,15 +48,22 @@ void xinerama_update_geometry(void)
         chosen_monitor.width, chosen_monitor.height, chosen_monitor.x_org,
         chosen_monitor.y_org));
 
-    if (x < 0 || flags & XNegative)
-        tray_data.xsh.x = chosen_monitor.x_org + chosen_monitor.width + x - tray_data.xsh.width;
-    else
+    if (flags & XValue) {
+      if (!(flags & XNegative))
         tray_data.xsh.x = chosen_monitor.x_org + x;
+      else
+        tray_data.xsh.x = chosen_monitor.x_org + chosen_monitor.width + x - tray_data.xsh.width;
+    } else
+        tray_data.xsh.x = chosen_monitor.x_org;
 
-    if (y < 0 || flags & YNegative)
-        tray_data.xsh.y = chosen_monitor.y_org + chosen_monitor.height + y - tray_data.xsh.height;
-    else
+    if (flags & YValue) {
+      if (!(flags & YNegative))
         tray_data.xsh.y = chosen_monitor.y_org + y;
+      else
+        tray_data.xsh.y = chosen_monitor.y_org + chosen_monitor.height + y - tray_data.xsh.height;
+    }
+    else
+        tray_data.xsh.y = chosen_monitor.y_org;
 
     LOG_TRACE(("New tray position (x,y): %d,%d\n", tray_data.xsh.x, tray_data.xsh.y));
 #else
